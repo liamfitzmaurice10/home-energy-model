@@ -1,22 +1,21 @@
-   # Raw inputs contain MPRN, name and address: never commit
-   data/raw/*
-   !data/raw/.gitkeep
+# Raw inputs contain MPRN, name and address: never commit
+data/raw/*
+!data/raw/.gitkeep
 
-   # Processed data ignored except small monthly aggregates
-   data/processed/*
-   !data/processed/.gitkeep
-   !data/processed/monthly/
-   !data/processed/monthly/*.csv
+# Processed data ignored except small monthly aggregates
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/monthly/
+!data/processed/monthly/*.csv
 
-   # Python
-   __pycache__/
-   *.pyc
-   .venv/
-   .pytest_cache/
-   .ipynb_checkpoints/
-   *.egg-info/
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
 
-   # Local secrets and OS files
-   .env
-   .DS_Store
-   
+# Local secrets and OS files
+.env
+.DS_Store
