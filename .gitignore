@@ -19,3 +19,4 @@ __pycache__/
 # Local secrets and OS files
 .env
 .DS_Store
+.vscode/
