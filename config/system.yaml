@@ -1,0 +1,19 @@
+tariffs:
+
+  electric_ireland_current:
+    provider: "Electric Ireland"
+    plan: "Home Electric SST Saver +"
+    date_collected: 2026-11-05
+    notes: "24% discount applies to unit charges only ends 2026-12-05"
+    vat_pct: 9
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.1954, hours: [23, 0, 1, 2, 3, 4, 5, 6, 7]}
+      - {label: "peak",  eur_per_kwh: 0.3968, hours: [17, 18]}
+      - {label: "day",   eur_per_kwh: 0.3719, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.195}
+    standing_charge_eur_per_day: 0.7917
+    levies:
+      - {label: "PSO", eur_per_month: 1.46}
+    discounts:
+      - {label: "24% off units", pct: 24, applies_to: "import_units", valid_to: 2026-12-05}
