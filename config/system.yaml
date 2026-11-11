@@ -1,11 +1,19 @@
+regulated_charges:
+  pso_levy:
+    - {eur_per_month: 0.51, valid_from: 2026-10-01}
+    - {eur_per_month: 1.46, valid_from: 2025-12-01}
+    - {eur_per_month: 2.01, valid_from: 2025-10-01}
+    - {eur_per_month: 3.23, valid_from: 2024-10-01}
+  vat_pct:
+    - {pct: 9, valid_from: 2022-11-01}
+
 tariffs:
 
   electric_ireland_current:
     provider: "Electric Ireland"
     plan: "Home Electric SST Saver +"
     date_collected: 2026-11-05
-    notes: "24% discount applies to unit charges only ends 2026-12-05"
-    vat_pct: 9
+    notes: "24% discount ends 2026-12-05. WIll still get 3.5% for direct debit and 2% for online billing = 5.5%"
     import_rates:
       - {label: "night", eur_per_kwh: 0.1954, hours: [23, 0, 1, 2, 3, 4, 5, 6, 7]}
       - {label: "peak",  eur_per_kwh: 0.3968, hours: [17, 18]}
@@ -13,7 +21,190 @@ tariffs:
     export_rates:
       - {label: "export", eur_per_kwh: 0.195}
     standing_charge_eur_per_day: 0.7917
-    levies:
-      - {label: "PSO", eur_per_month: 1.46}
     discounts:
       - {label: "24% off units", pct: 24, applies_to: "import_units", valid_to: 2026-12-05}
+
+  electric_ireland_sst_saver_16:
+    provider: "Electric Ireland"
+    plan: "Home Electric+ SST Saver 16%"
+    date_collected: 2026-11-09
+    notes: "States new customers only online but may be possible to get with a phone call. Same standard rates as the current plan but only 16% off."
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.1954, hours: [23, 0, 1, 2, 3, 4, 5, 6, 7]}
+      - {label: "peak",  eur_per_kwh: 0.3968, hours: [17, 18]}
+      - {label: "day",   eur_per_kwh: 0.3719, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.195}
+    standing_charge_eur_per_day: 0.7917
+    discounts:
+      - {label: "16% off units", pct: 16, applies_to: "import_units", valid_to: 2027-12-05}
+
+  electric_ireland_night_boost:
+    provider: "Electric Ireland"
+    plan: "Home Electric+ Night Boost"
+    date_collected: 2026-11-09
+    notes: "Need to check specifics"
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.1800, hours: [23, 0, 1, 4, 5, 6, 7]}
+      - {label: "boost", eur_per_kwh: 0.1056, hours: [2, 3]}
+      - {label: "day",   eur_per_kwh: 0.3650, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.195}
+    standing_charge_eur_per_day: 1.0066
+    discounts:
+      - {label: "5.5% off units", pct: 5.5, applies_to: "import_units", valid_to: 2027-12-05}
+  
+  electric_ireland_weekender_sat:
+    provider: "Electric Ireland"
+    plan: "Home Electric+ Weekender (Saturday free)"
+    date_collected: 2026-11-11
+    notes: "Free 8am-11pm on chosen day. Very hard to imagine this being a contender given the lack of a night rate"
+    import_rates:
+      - {label: "free",  eur_per_kwh: 0.0000, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], days: [sat]}
+      - {label: "flat",  eur_per_kwh: 0.3752, hours: [23, 0, 1, 2, 3, 4, 5, 6, 7], days: [sat]}
+      - {label: "flat",  eur_per_kwh: 0.3752, hours: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], days: [sun, mon, tue, wed, thu, fri]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.195}
+    standing_charge_eur_per_day: 0.7917
+    discounts:
+      - {label: "5.5% off units", pct: 5.5, applies_to: "import_units", valid_to: 2027-12-05}
+
+  sse_airtricity_top_discount_smart:
+    provider: "SSE Airtricity"
+    plan: "Electricity Top Discount Smart"
+    date_collected: 2026-11-09
+    notes: "The discount is correct at 30% + 2% Cashback but requires a ptsb account that could cost ~100/year - not worth it"
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.2694, hours: [23, 0, 1, 2, 3, 4, 5, 6, 7]}
+      - {label: "peak",  eur_per_kwh: 0.4964, hours: [17, 18]}
+      - {label: "day",   eur_per_kwh: 0.4432, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.195}
+    standing_charge_eur_per_day: 0.8834
+    discounts:
+      - {label: "30% off units", pct: 30, applies_to: "import_units", valid_to: 2027-12-05}
+
+  sse_airtricity_smart_ev_max:
+    provider: "SSE Airtricity"
+    plan: "1 Year Smart EV Max Electricity"
+    date_collected: 2026-11-09
+    notes: "Discount is 20% used to be 30%. Longest cheap window on the market, which suits overnight battery charging. Note: 550 kWh nightly rate cap per month"
+    import_rates:
+      - {label: "6h",  eur_per_kwh: 0.1670, hours: [23, 0, 1, 2, 3, 4]}
+      - {label: "18h", eur_per_kwh: 0.4893, hours: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.195}
+    standing_charge_eur_per_day: 1.0726
+    discounts:
+      - {label: "20% off units", pct: 20, applies_to: "import_units", valid_to: 2027-12-05}
+
+  energia_smart_data:
+    provider: "Energia"
+    plan: "Electricity Smart Data (MCC12)"
+    date_collected: 2026-11-09
+    notes: "Worth checking if peak is Mon-Fri only. - It is not, peak applies 7 days/ week"
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.2720, hours: [23, 0, 1, 2, 3, 4, 5, 6, 7]}
+      - {label: "peak",  eur_per_kwh: 0.4557, hours: [17, 18]}
+      - {label: "day",   eur_per_kwh: 0.3981, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.185}
+    standing_charge_eur_per_day: 0.8895
+    discounts:
+      - {label: "23% off units", pct: 23, applies_to: "import_units", valid_to: 2027-12-05}
+
+  energia_ev_smart_drive_plus:
+    provider: "Energia"
+    plan: "EV Smart Drive Plus (MCC12)"
+    date_collected: 2026-11-09
+    notes: "Four hour cheap window 2am-6am."
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.2445, hours: [23, 0, 1, 6, 7]}
+      - {label: "ev",    eur_per_kwh: 0.1350, hours: [2, 3, 4, 5]}
+      - {label: "peak",  eur_per_kwh: 0.5207, hours: [17, 18]}
+      - {label: "day",   eur_per_kwh: 0.3969, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.185}
+    standing_charge_eur_per_day: 1.0843
+    discounts:
+      - {label: "10% off units", pct: 10, applies_to: "import_units", valid_to: 2027-12-05}
+
+  bord_gais_smart_standard:
+    provider: "Bord Gais Energy"
+    plan: "Smart Standard (time of use) 28%"
+    date_collected: 2026-11-09
+    notes: "Peak applies Mon-Fri only, weekend 5-7pm is charged at the day rate. EV plan has different rural unit rates so check this plan does not."
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.3284, hours: [23, 0, 1, 2, 3, 4, 5, 6, 7]}
+      - {label: "peak",  eur_per_kwh: 0.5416, hours: [17, 18], days: [mon, tue, wed, thu, fri]}
+      - {label: "day",   eur_per_kwh: 0.4449, hours: [17, 18], days: [sat, sun]}
+      - {label: "day",   eur_per_kwh: 0.4449, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.185}
+    standing_charge_eur_per_day: 0.8279
+    discounts:
+      - {label: "28% off units", pct: 28, applies_to: "import_units", valid_to: 2027-12-05}
+  
+  bord_gais_smart_ev_plus:
+    provider: "Bord Gais Energy"
+    plan: "Smart EV Plus (15% new customer)"
+    date_collected: 2026-11-11
+    notes: "New customers only, 50 euro exit fee. 3 hour EV window 2am-5am."
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.2849, hours: [23, 0, 1, 5, 6, 7]}
+      - {label: "ev",    eur_per_kwh: 0.1474, hours: [2, 3, 4]}
+      - {label: "peak",  eur_per_kwh: 0.4808, hours: [17, 18], days: [mon, tue, wed, thu, fri]}
+      - {label: "day",   eur_per_kwh: 0.3768, hours: [17, 18], days: [sat, sun]}
+      - {label: "day",   eur_per_kwh: 0.3768, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.185}
+    standing_charge_eur_per_day: 1.1468
+    discounts:
+      - {label: "15% off units", pct: 15, applies_to: "import_units", valid_to: 2027-12-05}
+
+  yuno_smart_bonus:
+    provider: "Yuno Energy"
+    plan: "Electricity Smart Bonus (Variable Smart Day/Night/Peak)"
+    date_collected: 2026-11-09
+    notes: "Export rate is dynamic, 0.1716 is an overestimate. No percentage discount, instead a EUR 50 welcome bonus spread over the term. Rates ex VAT from Yuno price plans page"
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.2393, hours: [23, 0, 1, 2, 3, 4, 5, 6, 7]}
+      - {label: "peak",  eur_per_kwh: 0.4372, hours: [17, 18]}
+      - {label: "day",   eur_per_kwh: 0.3797, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.1716}
+    standing_charge_eur_per_day: 0.8200
+    discounts: []
+    one_off_credits:
+      - {label: "welcome bonus", eur: 50}
+
+  flogas_smart_dnp_20:
+    provider: "Flogas"
+    plan: "Smart Day/Night/Peak 20%"
+    date_collected: 2026-11-11
+    notes: "50 euro exit fee."
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.2979, hours: [23, 0, 1, 2, 3, 4, 5, 6, 7]}
+      - {label: "peak",  eur_per_kwh: 0.4883, hours: [17, 18]}
+      - {label: "day",   eur_per_kwh: 0.4127, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.185}
+    standing_charge_eur_per_day: 0.9202
+    discounts:
+      - {label: "20% off units", pct: 20, applies_to: "import_units", valid_to: 2027-12-05}
+
+  flogas_smart_ev_night_charge_20:
+    provider: "Flogas"
+    plan: "Smart EV Night Charge 20%"
+    date_collected: 2026-11-11
+    notes: "EV window 2am-5am. Might be for existing customers only. Bands mihgt actually be 5:15 ect, confirm"
+    import_rates:
+      - {label: "night", eur_per_kwh: 0.3186, hours: [23, 0, 1, 5, 6, 7]}
+      - {label: "ev",    eur_per_kwh: 0.1287, hours: [2, 3, 4]}
+      - {label: "peak",  eur_per_kwh: 0.5293, hours: [17, 18]}
+      - {label: "day",   eur_per_kwh: 0.4105, hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22]}
+    export_rates:
+      - {label: "export", eur_per_kwh: 0.185}
+    standing_charge_eur_per_day: 1.1873
+    discounts:
+      - {label: "20% off units", pct: 20, applies_to: "import_units", valid_to: 2027-12-05}
