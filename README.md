@@ -1,10 +1,10 @@
 # Home Energy Tariff Model
  
-An initial Python model that replays a household's half-hourly smart meter data under a variety of candidate Irish electricity tariffs to find the cheapest plan for a home that has solar panels, a battery and an electric vehicale.
+An initial Python model that replays a household's half-hourly smart meter data under a variety of candidate Irish electricity tariffs to find the cheapest plan for a home that has solar panels, a battery and an electric vehicle.
  
 ## Purpose
  
-Irish electricity plans can differ widely, both in price and in conditions. Rates change by time of day and day of the week, export rates vary, and payment terms differ (for example, a credit on the bill versus a payment that may have tax implications). A household’s demand, solar panels, battery and EV mileage can all have a beg effect on which plan is cheapest. This makes a “standard” comparison misleading, because what matters is not just how much electricity is imported but when, and how much is produced, stored and exported. Supplier comparison tools work from average usage profiles. This project prices the household’s actual half-hours instead, including time-of-use bands, weekday-only peaks, discounts, standing charges, levies and export credit.
+Irish electricity plans can differ widely, both in price and in conditions. Rates change by time of day and day of the week, export rates vary, and payment terms differ (for example, a credit on the bill versus a payment that may have tax implications). A household’s demand, solar panels, battery and EV mileage can all have a big effect on which plan is cheapest. This makes a “standard” comparison misleading, because what matters is not just how much electricity is imported but when, and how much is produced, stored and exported. Supplier comparison tools work from average usage profiles. This project prices the household’s actual half-hours instead, including time-of-use bands, weekday-only peaks, discounts, standing charges, levies and export credit.
  
 ## Initial household result
  
